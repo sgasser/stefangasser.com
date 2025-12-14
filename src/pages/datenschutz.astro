@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PageHeader from "../components/PageHeader.astro";
 import EmailLink from "../components/EmailLink.astro";
 ---
 
@@ -12,9 +13,7 @@ import EmailLink from "../components/EmailLink.astro";
     <article
       class="mx-auto max-w-3xl px-6 pt-8 pb-16 lg:px-8 lg:pt-12 lg:pb-24"
     >
-      <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
-        Datenschutzerklärung
-      </h1>
+      <PageHeader title="Datenschutzerklärung" />
 
       <div class="mt-12 space-y-8 text-gray-600">
         <section>
@@ -80,15 +79,7 @@ import EmailLink from "../components/EmailLink.astro";
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold text-gray-800">5. Externe Links</h2>
-          <p class="mt-4">
-            Diese Website enthält Links zu externen Websites. Für deren
-            Datenschutzpraktiken bin ich nicht verantwortlich.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-gray-800">6. Änderungen</h2>
+          <h2 class="text-xl font-semibold text-gray-800">5. Änderungen</h2>
           <p class="mt-4">
             Diese Datenschutzerklärung kann gelegentlich aktualisiert werden.
             Die aktuelle Version finden Sie immer auf dieser Seite.

@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PageHeader from "../components/PageHeader.astro";
 import EmailLink from "../components/EmailLink.astro";
 ---
 
@@ -12,9 +13,7 @@ import EmailLink from "../components/EmailLink.astro";
     <article
       class="mx-auto max-w-3xl px-6 pt-8 pb-16 lg:px-8 lg:pt-12 lg:pb-24"
     >
-      <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
-        Impressum
-      </h1>
+      <PageHeader title="Impressum" />
 
       <div class="mt-12 space-y-8 text-gray-600">
         <section>
@@ -35,16 +34,6 @@ import EmailLink from "../components/EmailLink.astro";
             <p class="flex items-center gap-2">
               E-Mail: <EmailLink showIcon={false} />
             </p>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-gray-800">
-            Verantwortlich für den Inhalt
-          </h2>
-          <div class="mt-4 space-y-1">
-            <p>Stefan Gasser</p>
-            <p>Südtirol, Italien</p>
           </div>
         </section>
 

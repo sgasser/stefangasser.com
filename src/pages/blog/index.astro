@@ -2,13 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
 import LinkedIn from "../../components/icons/LinkedIn.astro";
 import { socialLinks } from "../../data/social";
 ---
 
 <Layout
   title="Blog – Stefan Gasser"
-  description="Artikel über KI, Automatisierung und Software-Entwicklung."
+  description="Artikel über KI und Automatisierung – aus der Praxis."
 >
   <Header />
 
@@ -16,31 +17,26 @@ import { socialLinks } from "../../data/social";
     <section
       class="mx-auto max-w-3xl px-6 pt-8 pb-16 lg:px-8 lg:pt-12 lg:pb-24"
     >
-      <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
-        Blog
-      </h1>
-
-      <p class="mt-6 text-xl text-gray-600 leading-relaxed">
-        Artikel über KI, Automatisierung und Software-Entwicklung.
-      </p>
+      <PageHeader
+        title="Blog"
+        subtitle="Artikel über KI und Automatisierung – aus der Praxis."
+      />
 
       <div class="mt-12 rounded-2xl bg-primary-50 p-8 sm:p-12">
         <p class="text-xl text-gray-700">
-          Hier entstehen bald Artikel über KI, Automatisierung und
-          Software-Entwicklung.
+          Hier entstehen bald Artikel über KI und Automatisierung.
         </p>
-        <p class="mt-4 text-gray-600 flex items-center gap-2">
+        <p class="mt-4 text-gray-600">
           Folge mir auf
           <a
             href={socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 font-medium"
+            class="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 rounded"
           >
             <LinkedIn class="h-4 w-4" />
-            LinkedIn
-          </a>
-          um keine Updates zu verpassen.
+            LinkedIn</a
+          >, um keine Updates zu verpassen.
         </p>
       </div>
 

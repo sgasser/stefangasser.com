@@ -1,8 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import SocialLinks from "../components/SocialLinks.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import PageHeader from "../components/PageHeader.astro";
+import stefanImage from "../assets/stefan.webp";
 ---
 
 <Layout
@@ -15,94 +18,66 @@ import SocialLinks from "../components/SocialLinks.astro";
     <article
       class="mx-auto max-w-3xl px-6 pt-8 pb-16 lg:px-8 lg:pt-12 lg:pb-24"
     >
-      <header class="mb-8">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
-          Über mich
-        </h1>
-      </header>
+      <PageHeader title="Über mich" />
 
       <div class="flex flex-col sm:flex-row gap-8 mb-12">
         <figure class="shrink-0">
-          <img
-            src="/images/stefan.webp"
-            width="160"
-            height="160"
+          <Image
+            src={stefanImage}
+            width={160}
+            height={160}
             alt="Stefan Gasser"
+            loading="eager"
             class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-gray-100 object-cover shadow-lg ring-1 ring-gray-900/5"
           />
         </figure>
         <p class="text-xl text-gray-600 leading-relaxed">
-          In über 15 Jahren habe ich Software entwickelt, die eigenen
-          Unternehmen AutoIdle und MailWizard aufgebaut und bei ADDITIVE ein
-          Entwicklerteam mit 15 Mitarbeitern geführt.
+          15 Jahre Erfahrung in Softwareentwicklung, Unternehmensaufbau und
+          Teamführung. Ich kenne beide Seiten – Technik und Geschäft.
         </p>
       </div>
 
       <div class="prose prose-lg prose-gray max-w-none">
-        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Mein Weg</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Beruflich</h2>
 
         <p class="text-gray-600 leading-relaxed">
-          2009 habe ich meine Karriere als Softwareentwickler bei R3GIS
-          begonnen, wo ich Webanwendungen und Geoinformationssysteme
-          entwickelte. Dort habe ich nach der Ausbildung das Programmieren
-          richtig gelernt.
+          Bei ADDITIVE habe ich 12 Jahre lang die technische Entwicklung
+          verantwortet – vom ersten Entwickler zum Head of Software mit 15
+          Mitarbeitern.
         </p>
 
         <p class="text-gray-600 leading-relaxed mt-4">
-          2012 kam ich zu ADDITIVE als erster Entwickler. Ich habe die
-          technische Basis für alle Produkte gelegt und über die Jahre das Team
-          auf 15 Entwickler aufgebaut. Als Head of Software war ich für die
-          gesamte Produktstrategie und technische Architektur verantwortlich.
+          In dieser Zeit haben wir mehrere Produkte für über 500 Hotels
+          entwickelt: Marketing-Automatisierung, Newsletter-Systeme,
+          Gutscheinverwaltung, Analytics-Dashboards und mehr.
         </p>
 
-        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">
-          Eigene Unternehmen
-        </h2>
+        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Unternehmer</h2>
 
         <p class="text-gray-600 leading-relaxed">
-          Neben meiner Haupttätigkeit habe ich eigene Unternehmen aufgebaut:
+          Ich habe zwei eigene Unternehmen gegründet. AutoIdle läuft seit 2019
+          mit über 1.500 Kunden weltweit.
         </p>
 
         <p class="text-gray-600 leading-relaxed mt-4">
-          <strong class="text-gray-800">AutoIdle</strong> ist ein Heroku Add-on das
-          automatisch ungenutzte Apps pausiert. Seit 2019 läuft es profitabel mit
-          über 1.500 Kunden weltweit – komplett organisch gewachsen über den Heroku
-          Marketplace.
-        </p>
-
-        <p class="text-gray-600 leading-relaxed mt-4">
-          <strong class="text-gray-800">MailWizard</strong> war eine Plattform für
-          KI-gestütztes E-Mail-Management. Intelligente Kategorisierung, automatische
-          Zusammenfassungen und Workflows die man in normalem Deutsch definieren konnte.
-          2025 habe ich MailWizard erfolgreich verkauft.
+          MailWizard habe ich entwickelt, um E-Mail-Chaos in den Griff zu
+          bekommen: Automatische Kategorisierung, Zusammenfassungen und
+          Workflows – alles mit KI. 2025 habe ich die Plattform erfolgreich
+          verkauft.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Heute</h2>
 
         <p class="text-gray-600 leading-relaxed">
-          Seit Dezember 2025 bin ich selbstständig. Ich helfe Unternehmen bei
-          Digitalisierung, KI und Automatisierung – von der Analyse bis zur
-          fertigen Lösung.
-        </p>
-
-        <p class="text-gray-600 leading-relaxed mt-4">
-          Als Entwickler, Unternehmer und Führungskraft habe ich gelernt
-          Probleme aus verschiedenen Perspektiven zu sehen. Diese Erfahrung
-          bringe ich jetzt in meine Beratung ein.
-        </p>
-
-        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Persönlich</h2>
-
-        <p class="text-gray-600 leading-relaxed">
-          Ich lebe in Südtirol, Italien. Ich spreche Deutsch (Muttersprache),
-          Italienisch und Englisch fließend.
+          Seit Dezember 2025 bin ich selbstständiger Berater für
+          Digitalisierung, KI und Automatisierung. Als Entwickler, Unternehmer
+          und Führungskraft habe ich gelernt, Probleme aus verschiedenen
+          Perspektiven zu sehen. Diese Erfahrung bringe ich jetzt in meine
+          Beratung ein.
         </p>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-gray-100">
-        <h3 class="text-lg font-semibold text-gray-800 mb-4">Kontakt</h3>
-        <SocialLinks />
-      </div>
+      <ContactCTA class="mt-12" />
     </article>
   </main>
 
