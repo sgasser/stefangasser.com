@@ -1,0 +1,54 @@
+---
+// This page is used to generate the OG image via screenshot
+// Visit /og-image and screenshot at 1200x630
+import "../styles/global.css";
+---
+
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OG Image</title>
+  </head>
+  <body class="m-0 p-0 overflow-hidden">
+    <div
+      id="og-container"
+      class="w-[1200px] h-[630px] bg-white relative flex overflow-hidden"
+    >
+      <!-- Content -->
+      <div class="flex-1 pl-20 pt-20 pr-8">
+        <h1
+          class="text-6xl font-bold tracking-tight text-gray-800 leading-tight"
+        >
+          Ich bin Stefan Gasser.
+        </h1>
+        <p class="mt-5 text-4xl font-bold text-gray-800">
+          Digitalisierung. <span
+            class="inline-block bg-primary-200/60 italic px-2 py-0.5 -my-0.5 rounded"
+            >KI</span
+          >. Automatisierung.
+        </p>
+        <p class="mt-8 text-2xl text-gray-600 leading-relaxed max-w-xl">
+          Ich helfe Unternehmen, KI und Automatisierung sinnvoll einzusetzen –
+          von der Analyse bis zur fertigen Lösung.
+        </p>
+      </div>
+
+      <!-- Photo -->
+      <div class="flex items-center pr-20">
+        <div class="rotate-3">
+          <img
+            src="/images/stefan.jpg"
+            alt="Stefan Gasser"
+            class="w-72 h-72 object-cover object-top rounded-2xl shadow-xl ring-1 ring-gray-900/5"
+          />
+        </div>
+      </div>
+
+      <!-- Domain -->
+      <p class="absolute bottom-12 right-24 text-xl text-gray-400">
+        stefangasser.com
+      </p>
+    </div>
+  </body>
+</html>

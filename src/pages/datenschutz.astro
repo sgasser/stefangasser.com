@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import EmailLink from "../components/EmailLink.astro";
+---
+
+<Layout title="Datenschutz – Stefan Gasser">
+  <Header />
+
+  <main>
+    <article
+      class="mx-auto max-w-3xl px-6 pt-8 pb-16 lg:px-8 lg:pt-12 lg:pb-24"
+    >
+      <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
+        Datenschutzerklärung
+      </h1>
+
+      <div class="mt-12 space-y-8 text-gray-600">
+        <section>
+          <h2 class="text-xl font-semibold text-gray-800">
+            1. Verantwortlicher
+          </h2>
+          <div class="mt-4 space-y-1">
+            <p>Stefan Gasser</p>
+            <p>Steurerweg 14/C</p>
+            <p>39018 Terlan (BZ), Italien</p>
+            <p class="mt-2">Steuernummer: GSSSFN88E22A952H</p>
+            <p class="flex items-center gap-2">
+              E-Mail: <EmailLink showIcon={false} />
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-gray-800">
+            2. Erhebung und Speicherung personenbezogener Daten
+          </h2>
+          <div class="mt-4 space-y-4">
+            <p>
+              Diese Website erhebt keine personenbezogenen Daten automatisch. Es
+              werden keine Cookies gesetzt und keine Tracking-Tools verwendet.
+            </p>
+            <p>
+              Wenn Sie mir eine E-Mail senden, werden die von Ihnen mitgeteilten
+              Daten (E-Mail-Adresse, Name, Inhalt) gespeichert, um Ihre Anfrage
+              zu bearbeiten.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-gray-800">3. Hosting</h2>
+          <p class="mt-4">
+            Diese Website wird auf einem Server in Deutschland gehostet. Der
+            Hoster erhebt in sogenannten Logfiles folgende Daten: IP-Adresse,
+            Datum und Uhrzeit der Anfrage, Zeitzonendifferenz zur GMT, Inhalt
+            der Anforderung, HTTP-Statuscode, übertragene Datenmenge, Website
+            von der die Anforderung kommt, Browser, Betriebssystem und dessen
+            Oberfläche.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-gray-800">4. Ihre Rechte</h2>
+          <div class="mt-4 space-y-2">
+            <p>Sie haben das Recht:</p>
+            <ul class="list-disc list-inside space-y-1 ml-4">
+              <li>
+                Auskunft über Ihre gespeicherten personenbezogenen Daten zu
+                erhalten
+              </li>
+              <li>Berichtigung unrichtiger Daten zu verlangen</li>
+              <li>Löschung Ihrer Daten zu verlangen</li>
+              <li>Einschränkung der Verarbeitung zu verlangen</li>
+              <li>Der Verarbeitung zu widersprechen</li>
+              <li>Datenübertragbarkeit zu verlangen</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-gray-800">5. Externe Links</h2>
+          <p class="mt-4">
+            Diese Website enthält Links zu externen Websites. Für deren
+            Datenschutzpraktiken bin ich nicht verantwortlich.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-gray-800">6. Änderungen</h2>
+          <p class="mt-4">
+            Diese Datenschutzerklärung kann gelegentlich aktualisiert werden.
+            Die aktuelle Version finden Sie immer auf dieser Seite.
+          </p>
+          <p class="mt-4 text-sm">Stand: Dezember 2025</p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

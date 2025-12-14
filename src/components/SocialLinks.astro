@@ -1,0 +1,50 @@
+---
+import Mail from "./icons/Mail.astro";
+import GitHub from "./icons/GitHub.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import { socialLinks } from "../data/social";
+
+interface Props {
+  class?: string;
+  showGithub?: boolean;
+}
+
+const { class: className = "", showGithub = false } = Astro.props;
+---
+
+<div class:list={["flex gap-6", className]}>
+  <a
+    href="/kontakt"
+    title="Kontakt"
+    aria-label="Kontakt aufnehmen"
+    class="group -m-1 p-1"
+  >
+    <Mail class="h-6 w-6 text-gray-600 transition group-hover:text-gray-800" />
+  </a>
+  {
+    showGithub && (
+      <a
+        href={socialLinks.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="GitHub"
+        aria-label="GitHub Profil öffnen"
+        class="group -m-1 p-1"
+      >
+        <GitHub class="h-6 w-6 text-gray-600 transition group-hover:text-gray-800" />
+      </a>
+    )
+  }
+  <a
+    href={socialLinks.linkedin}
+    target="_blank"
+    rel="noopener noreferrer"
+    title="LinkedIn"
+    aria-label="LinkedIn Profil öffnen"
+    class="group -m-1 p-1"
+  >
+    <LinkedIn
+      class="h-6 w-6 text-gray-600 transition group-hover:text-gray-800"
+    />
+  </a>
+</div>

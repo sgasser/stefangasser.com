@@ -1,0 +1,46 @@
+stefangasser.com, www.stefangasser.com {
+	# Redirect www to non-www
+	@www host www.stefangasser.com
+	redir @www https://stefangasser.com{uri} permanent
+
+	root * /srv
+
+	# Compression (zstd is more efficient than gzip)
+	encode zstd gzip
+
+	# Static site routing for Astro SSG (generates /page/index.html)
+	try_files {path} {path}/index.html {path}.html =404
+
+	# File server with precompressed file support
+	file_server {
+		precompressed br gzip
+	}
+
+	# Custom 404 page
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+
+	# Cache static assets (1 year for immutable assets)
+	@static {
+		path *.jpg *.jpeg *.png *.webp *.gif *.ico *.css *.js *.woff *.woff2 *.svg
+	}
+	header @static Cache-Control "public, max-age=31536000, immutable"
+
+	# Cache HTML (1 hour)
+	@html {
+		path *.html
+	}
+	header @html Cache-Control "public, max-age=3600"
+
+	# Security headers
+	header {
+		X-Frame-Options "SAMEORIGIN"
+		X-Content-Type-Options "nosniff"
+		X-XSS-Protection "1; mode=block"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+	}
+}

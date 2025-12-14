@@ -1,0 +1,52 @@
+---
+import Mail from "./icons/Mail.astro";
+import { socialLinks } from "../data/social";
+
+interface Props {
+  class?: string;
+  showIcon?: boolean;
+  variant?: "default" | "button";
+}
+
+const {
+  class: className = "",
+  showIcon = true,
+  variant = "default",
+} = Astro.props;
+
+const id = `email-${Math.random().toString(36).slice(2, 9)}`;
+
+const displayText = variant === "button" ? "E-Mail schreiben" : "E-Mail";
+
+const variantClasses = {
+  default:
+    "inline-flex items-center gap-2 text-primary-700 hover:text-primary-800 transition-colors",
+  button:
+    "inline-flex items-center justify-center gap-2 rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-700 hover:shadow-md",
+};
+---
+
+<a
+  href="#"
+  id={`${id}-link`}
+  class:list={[variantClasses[variant], className]}
+  aria-label="E-Mail senden"
+>
+  {showIcon && <Mail class={variant === "button" ? "h-4 w-4" : "h-5 w-5"} />}
+  {displayText}
+</a>
+
+<script
+  is:inline
+  define:vars={{
+    id,
+    encodedEmail: socialLinks.email.encoded,
+  }}
+>
+  (function () {
+    const link = document.getElementById(`${id}-link`);
+    if (link) {
+      link.href = `mailto:${atob(encodedEmail)}`;
+    }
+  })();
+</script>

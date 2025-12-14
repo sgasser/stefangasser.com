@@ -1,0 +1,19 @@
+---
+interface Props {
+  step: number;
+  title: string;
+  description: string;
+}
+
+const { step, title, description } = Astro.props;
+
+const formattedStep = step.toString().padStart(2, "0");
+---
+
+<div
+  class="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100 transition-all hover:shadow-md"
+>
+  <span class="text-4xl font-bold text-primary-700">{formattedStep}</span>
+  <h3 class="mt-4 text-lg font-semibold text-gray-800">{title}</h3>
+  <p class="mt-2 text-gray-600">{description}</p>
+</div>
