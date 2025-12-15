@@ -14,13 +14,13 @@ Dabei macht es einen Unterschied. Je nach Plan landen deine Eingaben woanders al
 
 OpenAI bietet fünf Pläne an. Sie unterscheiden sich nicht nur im Preis, sondern vor allem darin, was mit deinen Daten passiert.
 
-| Plan | Preis | Daten fürs Training? | Für wen |
-|------|-------|----------------------|---------|
-| **Free** | €0 | Ja (abschaltbar) | Privat, zum Testen |
-| **Plus** | €23/Monat | Ja (abschaltbar) | Einzelpersonen |
-| **Pro** | €229/Monat | Ja (abschaltbar) | Vielnutzer |
-| **Business** | €29-34/User/Monat | Nein | Teams und Unternehmen |
-| **Enterprise** | Auf Anfrage | Nein | Große Firmen |
+| Plan           | Preis             | Daten fürs Training? | Für wen               |
+| -------------- | ----------------- | -------------------- | --------------------- |
+| **Free**       | €0                | Ja (abschaltbar)     | Privat, zum Testen    |
+| **Plus**       | €23/Monat         | Ja (abschaltbar)     | Einzelpersonen        |
+| **Pro**        | €229/Monat        | Ja (abschaltbar)     | Vielnutzer            |
+| **Business**   | €29-34/User/Monat | Nein                 | Teams und Unternehmen |
+| **Enterprise** | Auf Anfrage       | Nein                 | Große Firmen          |
 
 **Bei Free, Plus und Pro** fließen deine Eingaben standardmäßig ins Training zukünftiger Modelle. Bei Business und Enterprise nicht.
 
@@ -58,13 +58,14 @@ Mit abgeschaltetem Training oder Business/Enterprise kannst du eingeben:
 - Allgemeine Fragen und Recherchen
 - Ideen und Entwürfe
 
-Bei **Geschäftsgeheimnissen** (Strategien, unveröffentlichte Produkte, Finanzplanung) wäre ich vorsichtig. Auch mit Business-Plan landen die Daten auf US-Servern.
+Bei **Geschäftsgeheimnissen** (Strategien, unveröffentlichte Produkte, Finanzplanung) wäre ich vorsichtig - auch beim Business-Plan werden sie auf US-Servern verarbeitet.
 
 ### Kundendaten
 
 Wenn du Kundendaten eingibst, landen sie auf US-Servern bei OpenAI.
 
 Beispiele:
+
 - Name und E-Mail-Adresse eines Kunden
 - Finanzdaten aus einer Mandanten-Bilanz
 - Gesundheitsdaten eines Patienten
@@ -78,15 +79,16 @@ Für Berufsgeheimnisträger (Anwälte, Ärzte, Steuerberater) gilt das erst rech
 ## Was Business und Enterprise bieten
 
 **Was du bekommst:**
+
 - Daten werden nicht fürs Training verwendet
 - Data Processing Agreement (DPA) verfügbar
 - Admin-Kontrolle und Audit-Logs
 - Bei Enterprise: EU-Datenresidenz möglich
 
 **Was bleibt:**
+
 - Standard: Verarbeitung auf US-Servern
 - OpenAI unterliegt US-Gesetzen (CLOUD Act)
-- Europäische Datenschutzbehörden untersuchen OpenAI
 
 Für normale Geschäftsdaten ist das eine gute Lösung. Für sensible Kundendaten würde ich nach Alternativen suchen.
 
@@ -111,6 +113,7 @@ Eine einfache Regel für dein Team:
 ChatGPT ist ein nützliches Tool für Unternehmen. Die Frage ist nicht ob, sondern wie du es nutzt.
 
 **Die Kurzversion:**
+
 - Free/Plus: Training abschalten
 - Business/Enterprise: Gute Wahl für Teams
 - Kundendaten: Ich würde sie nicht eingeben
