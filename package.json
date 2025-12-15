@@ -14,10 +14,14 @@
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.1",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
+    "@vercel/og": "^0.8.5",
     "astro": "^5.16.5",
     "lucide-astro": "^0.556.0",
+    "satori": "^0.18.3",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

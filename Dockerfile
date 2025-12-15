@@ -8,11 +8,18 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM caddy:alpine
+FROM node:20-alpine AS runtime
 
-COPY --from=build /app/dist /srv
-COPY Caddyfile /etc/caddy/Caddyfile
+WORKDIR /app
 
-EXPOSE 80 443
+# Copy built application
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
 
-CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+# Astro Node adapter runs on port 4321 by default
+ENV HOST=0.0.0.0
+ENV PORT=4321
+
+EXPOSE 4321
+
+CMD ["node", "./dist/server/entry.mjs"]

@@ -22,6 +22,8 @@ const { Content } = await post.render();
 <Layout
   title={`${post.data.title} – Stefan Gasser`}
   description={post.data.description}
+  ogImage={`/og/${post.slug}.png`}
+  ogType="article"
 >
   <Header />
 
