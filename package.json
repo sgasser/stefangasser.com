@@ -11,7 +11,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "astro check"
+    "check": "astro check",
+    "audio": "tsx scripts/generate-blog-audio.ts",
+    "audio:dry": "tsx scripts/generate-blog-audio.ts --dry-run"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.1",
@@ -26,11 +28,14 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@elevenlabs/elevenlabs-js": "^2.28.0",
     "@typescript-eslint/parser": "^8.49.0",
+    "dotenv": "^17.2.3",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
     "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

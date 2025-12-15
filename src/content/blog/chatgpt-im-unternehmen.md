@@ -26,7 +26,7 @@ OpenAI bietet fünf Pläne an. Sie unterscheiden sich nicht nur im Preis, sonder
 
 ## Was passiert mit deinen Eingaben?
 
-### Bei Free, Plus, Pro (Standard)
+### Bei Free, Plus und Pro
 
 Wenn du etwas eingibst, kann OpenAI diese Daten nutzen, um das Modell zu verbessern. Deine Prompts fließen - anonymisiert - in zukünftige Versionen ein.
 
@@ -70,11 +70,11 @@ Beispiele:
 - Finanzdaten aus einer Mandanten-Bilanz
 - Gesundheitsdaten eines Patienten
 
-Die Frage ist nicht "Ist das erlaubt?" - die Frage ist: **Will ich das?**
+Zwei Fragen solltest du dir stellen: **Darf ich das?** Und: **Will ich das?**
 
 Dein Kunde hat dir seine Daten anvertraut. Will er, dass sie bei OpenAI landen? Meine Einschätzung: Die meisten Kunden wissen das nicht - und würden es nicht wollen.
 
-Für Berufsgeheimnisträger (Anwälte, Ärzte, Steuerberater) gilt das erst recht - da kommen noch rechtliche Pflichten dazu.
+Für Berufsgeheimnisträger (Anwälte, Ärzte, Steuerberater) ist es nicht nur eine Frage des Wollens - da gibt es rechtliche Pflichten.
 
 ## Was Business und Enterprise bieten
 
@@ -122,6 +122,6 @@ Für viele Aufgaben funktioniert das. Texte schreiben, Ideen entwickeln, Dokumen
 
 Aber was ist mit den Aufgaben, wo du Kundendaten brauchst? Die E-Mail mit dem Kundennamen. Die Bilanz mit den echten Zahlen. Das Dokument mit den Mandanteninfos.
 
-Diese Aufgaben sind oft die wertvollsten. Und genau die kannst du mit ChatGPT nicht machen - zumindest nicht ohne Alternativen.
+Genau diese Aufgaben bringen oft den größten Nutzen. Und genau die kannst du mit ChatGPT nicht machen - zumindest nicht ohne Alternativen.
 
 Darüber schreibe ich nächste Woche: Was wäre wenn KI auch mit Kundendaten ginge?

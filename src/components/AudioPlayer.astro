@@ -1,0 +1,239 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  class?: string;
+}
+
+const { src, title = "Artikel anhören", class: className } = Astro.props;
+---
+
+<div class:list={["audio-player rounded-xl bg-gray-50 p-4", className]}>
+  <div class="flex items-center gap-3">
+    <button
+      type="button"
+      class="skip-back-btn flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-gray-500 hover:text-primary-700 hover:bg-gray-100 transition-colors"
+      aria-label="15 Sekunden zurück"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"
+        ></path>
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="play-pause-btn flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary-700 text-white shadow-sm transition-all hover:bg-primary-800 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+      aria-label="Abspielen"
+    >
+      <svg
+        class="play-icon h-5 w-5 ml-0.5"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+      <svg
+        class="pause-icon hidden h-5 w-5"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"></path>
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="skip-forward-btn flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-gray-500 hover:text-primary-700 hover:bg-gray-100 transition-colors"
+      aria-label="15 Sekunden vor"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"
+        ></path>
+      </svg>
+    </button>
+
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-sm font-medium text-gray-700 truncate">{title}</span>
+        <span class="time-display text-xs text-gray-500 ml-2 flex-shrink-0">
+          <span class="current-time">0:00</span>
+          <span class="text-gray-400"> / </span>
+          <span class="duration">--:--</span>
+        </span>
+      </div>
+
+      <div
+        class="progress-container relative h-2 bg-gray-200 rounded-full cursor-pointer group touch-none"
+      >
+        <div
+          class="progress-bar h-full bg-primary-600 rounded-full pointer-events-none"
+          style="width: 0%"
+        >
+        </div>
+        <div
+          class="progress-handle absolute top-1/2 -translate-y-1/2 h-4 w-4 bg-primary-700 rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+          style="left: 0%"
+        >
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        class="speed-btn text-xs font-medium text-gray-600 hover:text-primary-700 px-2 py-1 rounded transition-colors"
+        aria-label="Geschwindigkeit ändern"
+      >
+        1x
+      </button>
+    </div>
+  </div>
+
+  <audio class="audio-element hidden" preload="metadata">
+    <source src={src} type="audio/mpeg" />
+  </audio>
+</div>
+
+<script>
+  class AudioPlayerController {
+    private audio: HTMLAudioElement;
+    private progressContainer: HTMLElement;
+    private progressBar: HTMLElement;
+    private progressHandle: HTMLElement;
+    private currentTimeEl: HTMLElement;
+    private durationEl: HTMLElement;
+    private playIcon: SVGElement;
+    private pauseIcon: SVGElement;
+    private speedBtn: HTMLButtonElement;
+    private speeds = [1, 1.25, 1.5, 1.75, 2];
+    private speedIndex = 0;
+    private dragging = false;
+
+    constructor(container: HTMLElement) {
+      this.audio = container.querySelector(".audio-element")!;
+      this.progressContainer = container.querySelector(".progress-container")!;
+      this.progressBar = container.querySelector(".progress-bar")!;
+      this.progressHandle = container.querySelector(".progress-handle")!;
+      this.currentTimeEl = container.querySelector(".current-time")!;
+      this.durationEl = container.querySelector(".duration")!;
+      this.playIcon = container.querySelector(".play-icon")!;
+      this.pauseIcon = container.querySelector(".pause-icon")!;
+      this.speedBtn = container.querySelector(".speed-btn")!;
+
+      // Buttons
+      container
+        .querySelector(".play-pause-btn")!
+        .addEventListener("click", () => {
+          this.audio.paused ? this.audio.play() : this.audio.pause();
+        });
+      container
+        .querySelector(".skip-back-btn")!
+        .addEventListener("click", () => {
+          this.audio.currentTime = Math.max(0, this.audio.currentTime - 15);
+        });
+      container
+        .querySelector(".skip-forward-btn")!
+        .addEventListener("click", () => {
+          this.audio.currentTime = Math.min(
+            this.audio.duration,
+            this.audio.currentTime + 15
+          );
+        });
+      this.speedBtn.addEventListener("click", () => this.cycleSpeed());
+
+      // Progress bar - Pointer Events (works for mouse + touch)
+      this.progressContainer.addEventListener("pointerdown", (e) => {
+        this.dragging = true;
+        this.progressHandle.style.opacity = "1";
+        this.seek(e);
+      });
+      document.addEventListener("pointermove", (e) => {
+        if (this.dragging) this.seek(e);
+      });
+      document.addEventListener("pointerup", () => {
+        this.dragging = false;
+        this.progressHandle.style.opacity = "";
+      });
+
+      // Audio events
+      const updateDuration = () => {
+        if (this.audio.duration && !isNaN(this.audio.duration)) {
+          this.durationEl.textContent = this.formatTime(this.audio.duration);
+        }
+      };
+      this.audio.addEventListener("loadedmetadata", updateDuration);
+      this.audio.addEventListener("durationchange", updateDuration);
+      this.audio.addEventListener("timeupdate", () => this.updateProgress());
+      this.audio.addEventListener("play", () => this.updatePlayState(true));
+      this.audio.addEventListener("pause", () => this.updatePlayState(false));
+      this.audio.addEventListener("ended", () => {
+        this.updatePlayState(false);
+        this.audio.currentTime = 0;
+      });
+
+      // Check if already loaded
+      updateDuration();
+    }
+
+    private seek(e: PointerEvent) {
+      const rect = this.progressContainer.getBoundingClientRect();
+      const percent = Math.max(
+        0,
+        Math.min(1, (e.clientX - rect.left) / rect.width)
+      );
+      if (this.audio.duration) {
+        this.audio.currentTime = percent * this.audio.duration;
+      }
+    }
+
+    private cycleSpeed() {
+      this.speedIndex = (this.speedIndex + 1) % this.speeds.length;
+      const speed = this.speeds[this.speedIndex];
+      this.audio.playbackRate = speed;
+      this.speedBtn.textContent = `${speed}x`;
+    }
+
+    private updatePlayState(playing: boolean) {
+      this.playIcon.classList.toggle("hidden", playing);
+      this.pauseIcon.classList.toggle("hidden", !playing);
+    }
+
+    private updateProgress() {
+      if (!this.audio.duration) return;
+      const percent = (this.audio.currentTime / this.audio.duration) * 100;
+      this.progressBar.style.width = `${percent}%`;
+      this.progressHandle.style.left = `${percent}%`;
+      this.currentTimeEl.textContent = this.formatTime(this.audio.currentTime);
+    }
+
+    private formatTime(sec: number): string {
+      if (isNaN(sec)) return "0:00";
+      return `${Math.floor(sec / 60)}:${Math.floor(sec % 60)
+        .toString()
+        .padStart(2, "0")}`;
+    }
+  }
+
+  document.querySelectorAll(".audio-player").forEach((el) => {
+    new AudioPlayerController(el as HTMLElement);
+  });
+</script>

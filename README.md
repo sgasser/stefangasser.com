@@ -46,6 +46,15 @@ npm run format     # Prettier
 | Home        | `/`            |
 | Über mich   | `/ueber-mich`  |
 | Blog        | `/blog`        |
-| Kontakt     | `/kontakt`     |
+| Leistungen  | `/leistungen`  |
 | Impressum   | `/impressum`   |
 | Datenschutz | `/datenschutz` |
+
+## Blog Audio
+
+```bash
+/tts src/content/blog/article.md           # Create optimized .tts.txt
+npm run audio -- src/content/blog/article.md  # Generate MP3
+```
+
+Requires `ELEVENLABS_API_KEY` in `.env` (see `.env.example`).

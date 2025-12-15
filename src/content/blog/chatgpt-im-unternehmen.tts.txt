@@ -1,0 +1,46 @@
+Ein Artikel von Stefan Gasser, vom fünfzehnten Dezember zweitausendfünfundzwanzig. <break time="0.8s" />
+
+ChatGPT im Unternehmen: Wo landen deine Daten? <break time="0.8s" />
+
+"Wir nutzen ChatGPT" höre ich oft. Dann frage ich: Welchen Plan? Und was gebt ihr ein? Meistens: Schulterzucken. Dabei macht es einen Unterschied. Je nach Plan landen deine Eingaben woanders als du denkst. <break time="0.8s" />
+
+Schauen wir uns die fünf ChatGPT-Pläne an. <break time="0.5s" />
+
+Der Free-Plan kostet nichts und eignet sich zum Testen. <break time="0.3s" />
+Der Plus-Plan kostet dreiundzwanzig Euro pro Monat für Einzelpersonen. <break time="0.3s" />
+Der Pro-Plan kostet zweihundertneunundzwanzig Euro pro Monat für Vielnutzer. <break time="0.3s" />
+Bei diesen drei Plänen werden deine Daten standardmäßig fürs Training verwendet. Du kannst das aber abschalten. In den Einstellungen findest du unter Datenkontrollen die Option "Das Modell für alle verbessern". Schalte sie aus. Das gilt nur für neue Gespräche. <break time="0.5s" />
+
+Der Business-Plan kostet neunundzwanzig bis vierunddreißig Euro pro Nutzer und Monat. <break time="0.3s" />
+Der Enterprise-Plan ist auf Anfrage erhältlich. <break time="0.3s" />
+Bei beiden werden deine Daten nicht fürs Training verwendet. <break time="0.8s" />
+
+Bei allen Plänen werden deine Daten auf US-Servern verarbeitet. OpenAI ist ein US-Unternehmen und unterliegt US-Gesetzen wie dem CLOUD Act. Enterprise bietet seit zweitausendfünfundzwanzig EU-Datenresidenz an, aber das muss aktiv eingerichtet werden. <break time="0.8s" />
+
+Was heißt das für Unternehmen? <break time="0.5s" />
+
+Allgemeine Inhalte kannst du problemlos eingeben: Texte ohne Kundenbezug, Recherchen, Ideen und Entwürfe. Bei Geschäftsgeheimnissen wie Strategien oder Finanzplanung wäre ich vorsichtig. <break time="0.5s" />
+
+Bei Kundendaten wird es kritisch. Namen, E-Mail-Adressen, Finanzdaten oder Gesundheitsdaten landen auf US-Servern bei OpenAI. Zwei Fragen solltest du dir stellen: Darf ich das? Und: Will ich das?
+
+Dein Kunde hat dir seine Daten anvertraut. Will er, dass sie bei OpenAI landen? Die meisten Kunden wissen das nicht und würden es nicht wollen. Für Anwälte, Ärzte und Steuerberater gibt es zusätzlich rechtliche Pflichten. <break time="0.8s" />
+
+Was bieten Business und Enterprise zusätzlich? <break time="0.5s" />
+
+Ein Data Processing Agreement, Admin-Kontrolle und Audit-Logs. Bei Enterprise ist EU-Datenresidenz möglich. Für normale Geschäftsdaten ist das eine gute Lösung. Für sensible Kundendaten würde ich nach Alternativen suchen. <break time="0.8s" />
+
+Hier meine Empfehlungen. <break time="0.5s" />
+
+Wenn du Free oder Plus nutzt: Aktiviere das Opt-out und trenne Firmen- und Privat-Account. <break time="0.3s" />
+
+Wenn mehrere Leute im Team ChatGPT nutzen: Holt euch den Business-Plan und definiert gemeinsame Regeln. Eine einfache Faustregel: Würdest du es auch an einen externen Berater schicken? Wenn ja, ok. Wenn nein, nicht eingeben. <break time="0.8s" />
+
+Fassen wir zusammen. <break time="0.5s" />
+
+ChatGPT ist ein nützliches Tool für Unternehmen. Für viele Aufgaben funktioniert das: Texte schreiben, Ideen entwickeln, Dokumente zusammenfassen.
+
+Aber was ist mit den Aufgaben, wo du Kundendaten brauchst? Die E-Mail mit dem Kundennamen, die Bilanz mit den echten Zahlen. Genau diese Aufgaben bringen oft den größten Nutzen. Und genau die kannst du mit ChatGPT nicht machen.
+
+Darüber schreibe ich nächste Woche: Was wäre, wenn KI auch mit Kundendaten ginge?
+
+<break time="0.5s" /> Mehr dazu auf stefan gasser punkt com
