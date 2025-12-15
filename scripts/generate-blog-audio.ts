@@ -1,6 +1,12 @@
 #!/usr/bin/env npx tsx
 /**
- * Blog Audio Generator - Converts blog markdown to MP3 using ElevenLabs TTS
+ * Blog Audio Generator - Converts TTS-optimized text to MP3 using ElevenLabs
+ *
+ * Usage:
+ *   npm run audio -- src/content/blog/article.md
+ *   npm run audio:dry -- src/content/blog/article.md
+ *
+ * Requires: .tts.txt file next to the .md file (create with /tts command)
  */
 
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
@@ -18,30 +24,6 @@ const OUTPUT_FORMAT = "mp3_44100_128";
 
 const PROJECT_ROOT = resolve(import.meta.dirname, "..");
 const AUDIO_DIR = join(PROJECT_ROOT, "public", "audio");
-
-function markdownToText(markdown: string): string {
-  let text = markdown;
-  text = text.replace(/^---\n[\s\S]*?\n---\n/, "");
-  text = text.replace(/<[^>]+>/g, "");
-  text = text.replace(/!\[[^\]]*\]\([^)]+\)/g, "");
-  text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
-  text = text.replace(/^#{1,6}\s+/gm, "");
-  text = text.replace(/\*\*([^*]+)\*\*/g, "$1");
-  text = text.replace(/\*([^*]+)\*/g, "$1");
-  text = text.replace(/__([^_]+)__/g, "$1");
-  text = text.replace(/_([^_]+)_/g, "$1");
-  text = text.replace(/`([^`]+)`/g, "$1");
-  text = text.replace(/^>\s*/gm, "");
-  text = text.replace(/^\|[-:\s|]+\|\s*$/gm, "");
-  text = text.replace(/^\|\s*/gm, "");
-  text = text.replace(/\s*\|$/gm, "");
-  text = text.replace(/\s*\|\s*/g, ", ");
-  text = text.replace(/^[-*_]{3,}\s*$/gm, "");
-  text = text.replace(/^[\s]*[-*+]\s+/gm, "");
-  text = text.replace(/^[\s]*\d+\.\s+/gm, "");
-  text = text.replace(/\n{3,}/g, "\n\n");
-  return text.trim();
-}
 
 async function generateAudio(
   client: ElevenLabsClient,
@@ -63,7 +45,6 @@ async function generateAudio(
 
   if (response instanceof Readable) {
     response.pipe(writeStream);
-    await finished(writeStream);
   } else {
     const reader = (response as ReadableStream<Uint8Array>).getReader();
     const chunks: Uint8Array[] = [];
@@ -72,11 +53,11 @@ async function generateAudio(
       if (done) break;
       if (value) chunks.push(value);
     }
-    const buffer = Buffer.concat(chunks);
-    writeStream.write(buffer);
+    writeStream.write(Buffer.concat(chunks));
     writeStream.end();
-    await finished(writeStream);
   }
+
+  await finished(writeStream);
 }
 
 async function processFile(
@@ -84,48 +65,33 @@ async function processFile(
   filePath: string,
   dryRun: boolean
 ): Promise<{ chars: number; words: number }> {
-  const fileName = basename(filePath);
   const slug = basename(filePath, ".md");
-  const outputPath = join(AUDIO_DIR, `${slug}.mp3`);
   const ttsPath = filePath.replace(/\.md$/, ".tts.txt");
 
-  console.log(`\nProcessing: ${fileName}`);
-
-  let plainText: string;
-  let source: string;
-
-  if (existsSync(ttsPath)) {
-    plainText = readFileSync(ttsPath, "utf-8").trim();
-    source = ".tts.txt (optimized)";
-  } else {
-    const markdown = readFileSync(filePath, "utf-8");
-    plainText = markdownToText(markdown);
-    source = ".md (auto-converted)";
+  if (!existsSync(ttsPath)) {
+    throw new Error(
+      `TTS file not found: ${ttsPath}\nRun "/tts ${filePath}" first to create it.`
+    );
   }
 
-  const chars = plainText.length;
-  const words = plainText.split(/\s+/).length;
+  const text = readFileSync(ttsPath, "utf-8").trim();
+  const chars = text.length;
+  const words = text.split(/\s+/).length;
 
-  console.log(`  Source: ${source}`);
-  console.log(
-    `  Text: ${chars.toLocaleString()} chars, ${words.toLocaleString()} words`
-  );
+  console.log(`\n${slug}`);
+  console.log(`  ${chars.toLocaleString()} chars, ${words.toLocaleString()} words`);
 
   if (dryRun) {
-    console.log("  [dry-run] Would generate audio");
-    console.log("-".repeat(60));
-    console.log(plainText);
-    console.log("-".repeat(60));
+    console.log(`  [dry-run] Would generate audio\n`);
+    console.log(text);
     return { chars, words };
   }
 
-  if (!client) {
-    console.error("  Error: ElevenLabs client not initialized");
-    return { chars, words };
-  }
+  if (!client) throw new Error("ElevenLabs client not initialized");
 
-  console.log(`  Generating audio...`);
-  await generateAudio(client, plainText, outputPath);
+  console.log(`  Generating...`);
+  const outputPath = join(AUDIO_DIR, `${slug}.mp3`);
+  await generateAudio(client, text, outputPath);
   console.log(`  Saved: ${outputPath}`);
 
   return { chars, words };
@@ -136,20 +102,6 @@ async function main(): Promise<void> {
   const dryRun = args.includes("--dry-run");
   const files = args.filter((a) => !a.startsWith("--"));
 
-  const apiKey = process.env.ELEVENLABS_API_KEY;
-
-  if (!apiKey && !dryRun) {
-    console.error("Error: ELEVENLABS_API_KEY not set in .env");
-    console.error("Get your API key at elevenlabs.io");
-    process.exit(1);
-  }
-
-  const client = apiKey ? new ElevenLabsClient({ apiKey }) : null;
-
-  if (!existsSync(AUDIO_DIR)) {
-    mkdirSync(AUDIO_DIR, { recursive: true });
-  }
-
   if (files.length === 0) {
     console.log(`
 Blog Audio Generator
@@ -158,10 +110,20 @@ Usage:
   npm run audio -- <file.md>
   npm run audio:dry -- <file.md>
 
-Example:
-  npm run audio -- src/content/blog/my-article.md
+Requires .tts.txt file (create with /tts command first)
 `);
     return;
+  }
+
+  const apiKey = process.env.ELEVENLABS_API_KEY;
+  if (!apiKey && !dryRun) {
+    throw new Error("ELEVENLABS_API_KEY not set in .env");
+  }
+
+  const client = apiKey ? new ElevenLabsClient({ apiKey }) : null;
+
+  if (!existsSync(AUDIO_DIR)) {
+    mkdirSync(AUDIO_DIR, { recursive: true });
   }
 
   let totalChars = 0;
@@ -169,28 +131,20 @@ Example:
 
   for (const file of files) {
     const filePath = resolve(file);
-    if (!existsSync(filePath)) {
-      console.error(`File not found: ${file}`);
-      continue;
-    }
+    if (!existsSync(filePath)) throw new Error(`File not found: ${file}`);
     const { chars, words } = await processFile(client, filePath, dryRun);
     totalChars += chars;
     totalWords += words;
   }
 
-  console.log(`\n${"=".repeat(60)}`);
-  console.log(
-    `Summary: ${files.length} file(s), ${totalChars.toLocaleString()} chars, ${totalWords.toLocaleString()} words`
-  );
+  console.log(`\nTotal: ${totalChars.toLocaleString()} chars, ${totalWords.toLocaleString()} words`);
 
   if (dryRun) {
-    const cost = totalChars * 0.00003;
-    console.log(`Estimated cost: $${cost.toFixed(2)}`);
-    console.log(`Free tier: 10,000 chars/month`);
+    console.log(`Estimated cost: $${(totalChars * 0.00003).toFixed(2)}`);
   }
 }
 
-main().catch((error) => {
-  console.error("Error:", error.message);
+main().catch((e) => {
+  console.error(`Error: ${e.message}`);
   process.exit(1);
 });
