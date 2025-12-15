@@ -1,10 +1,16 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import LinkedIn from "../../components/icons/LinkedIn.astro";
 import { socialLinks } from "../../data/social";
+import { formatDate } from "../../utils/date";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <Layout
@@ -22,40 +28,70 @@ import { socialLinks } from "../../data/social";
         subtitle="Artikel über KI und Automatisierung – aus der Praxis."
       />
 
-      <div class="mt-12 rounded-2xl bg-primary-50 p-8 sm:p-12">
-        <p class="text-xl text-gray-700">
-          Hier entstehen bald Artikel über KI und Automatisierung.
-        </p>
-        <p class="mt-4 text-gray-600">
-          Folge mir auf
-          <a
-            href={socialLinks.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 rounded"
-          >
-            <LinkedIn class="h-4 w-4" />
-            LinkedIn</a
-          >, um keine Updates zu verpassen.
-        </p>
-      </div>
-
-      <!-- Future articles will be listed here -->
-      <!--
-      <div class="mt-12 space-y-12">
-        <article class="group">
-          <a href="/blog/artikel-slug" class="block">
-            <time datetime="2025-01-01" class="text-sm text-gray-600">1. Januar 2025</time>
-            <h2 class="mt-2 text-xl font-semibold text-gray-800 group-hover:text-primary-700 transition-colors">
-              Artikel Titel
-            </h2>
-            <p class="mt-2 text-gray-600">
-              Kurze Beschreibung des Artikels...
+      {
+        posts.length === 0 ? (
+          <div class="mt-12 rounded-2xl bg-primary-50 p-8 sm:p-12">
+            <p class="text-xl text-gray-700">
+              Hier entstehen bald Artikel über KI und Automatisierung.
             </p>
-          </a>
-        </article>
-      </div>
-      -->
+            <p class="mt-4 text-gray-600">
+              Folge mir auf
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 rounded"
+              >
+                <LinkedIn class="h-4 w-4" />
+                LinkedIn
+              </a>
+              , um keine Updates zu verpassen.
+            </p>
+          </div>
+        ) : (
+          <div class="mt-12 space-y-12">
+            {posts.map((post) => (
+              <article class="group">
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="block rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600"
+                >
+                  <time
+                    datetime={post.data.pubDate.toISOString()}
+                    class="text-sm text-gray-600"
+                  >
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <h2 class="mt-2 text-xl font-semibold text-gray-800 group-hover:text-primary-700 transition-colors">
+                    {post.data.title}
+                  </h2>
+                  <p class="mt-2 text-gray-600">{post.data.description}</p>
+                </a>
+              </article>
+            ))}
+          </div>
+        )
+      }
+
+      {
+        posts.length > 0 && (
+          <div class="mt-16 rounded-2xl bg-primary-50 p-8">
+            <p class="text-gray-700">
+              Folge mir auf
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-primary-700 hover:text-primary-800 font-medium"
+              >
+                <LinkedIn class="h-4 w-4" />
+                LinkedIn
+              </a>
+              für Updates zu neuen Artikeln.
+            </p>
+          </div>
+        )
+      }
     </section>
   </main>
 
