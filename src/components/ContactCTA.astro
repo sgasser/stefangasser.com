@@ -1,25 +1,42 @@
 ---
 interface Props {
   class?: string;
+  variant?: "contact" | "services";
 }
 
-const { class: className } = Astro.props;
+const { class: className, variant = "contact" } = Astro.props;
+
+const content = {
+  contact: {
+    title: "Bereit für den nächsten Schritt?",
+    text: "In einem kurzen Gespräch lernen wir uns kennen und ich zeige Ihnen erste Möglichkeiten für Ihr Unternehmen. Kostenlos und unverbindlich.",
+    button: "Kontakt aufnehmen",
+    href: "/leistungen#kontakt",
+  },
+  services: {
+    title: "Interesse geweckt?",
+    text: "Erfahren Sie, wie ich arbeite und welche Projekte ich umsetze.",
+    button: "Leistungen ansehen",
+    href: "/leistungen",
+  },
+};
+
+const { title, text, button, href } = content[variant];
 ---
 
 <div class:list={["rounded-2xl bg-primary-50 p-8 sm:p-12", className]}>
   <h2 class="text-2xl font-bold text-gray-800">
-    Bereit für den nächsten Schritt?
+    {title}
   </h2>
   <p class="mt-4 text-lg text-gray-600">
-    In einem kurzen Gespräch lernen wir uns kennen und ich zeige Ihnen erste
-    Möglichkeiten für Ihr Unternehmen. Kostenlos und unverbindlich.
+    {text}
   </p>
   <div class="mt-6">
     <a
-      href="/kontakt"
+      href={href}
       class="inline-flex items-center justify-center rounded-full bg-primary-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-800 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
     >
-      Kontakt aufnehmen
+      {button}
     </a>
   </div>
 </div>

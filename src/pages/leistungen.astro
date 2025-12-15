@@ -1,0 +1,118 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ProcessStep from "../components/ProcessStep.astro";
+import EmailLink from "../components/EmailLink.astro";
+import { MapPin } from "lucide-astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import { socialLinks } from "../data/social";
+---
+
+<Layout
+  title="Leistungen – Stefan Gasser"
+  description="KI-Beratung und Automatisierung für Unternehmen. Von der Analyse bis zur fertigen Lösung."
+>
+  <Header />
+
+  <main>
+    <article
+      class="mx-auto max-w-3xl px-6 pt-8 pb-16 lg:px-8 lg:pt-12 lg:pb-24"
+    >
+      <PageHeader
+        title="Leistungen"
+        subtitle="Ich helfe Unternehmen, KI und Automatisierung sinnvoll einzusetzen – von der Analyse bis zur fertigen Lösung."
+      />
+
+      <!-- So arbeite ich -->
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8">So arbeite ich</h2>
+        <div class="space-y-6">
+          <ProcessStep
+            number={1}
+            title="Erstgespräch"
+            description="Wir sprechen über Ihre Situation. Kostenlos und unverbindlich."
+          />
+          <ProcessStep
+            number={2}
+            title="Analyse"
+            description="Ich lerne Ihr Unternehmen kennen, begleite Sie im Alltag und identifiziere Potenziale."
+          />
+          <ProcessStep
+            number={3}
+            title="Umsetzung"
+            description="Als Entwickler setze ich Lösungen selbst um. Von der Idee bis zur fertigen Lösung aus einer Hand."
+          />
+          <ProcessStep
+            number={4}
+            title="Übergabe"
+            description="Schulung für Ihr Team und Dokumentation."
+          />
+          <ProcessStep
+            number={5}
+            title="Laufende Betreuung"
+            description="Support-Vertrag für Anpassungen und Weiterentwicklung."
+            optional
+          />
+        </div>
+      </section>
+
+      <!-- Datenschutz -->
+      <section class="mt-16 rounded-2xl bg-gray-50 p-8">
+        <h2 class="text-xl font-semibold text-gray-800">
+          Datenschutz bei sensiblen Daten
+        </h2>
+        <p class="mt-4 text-gray-600">
+          Bei Kundendaten, Verträgen oder internen Dokumenten setze ich auf
+          lokale KI mit Open Source Modellen.
+        </p>
+        <p class="mt-3 text-gray-600">
+          Ihr eigener KI-Server. Keine geteilte Infrastruktur, keine Daten bei
+          OpenAI oder Google.
+        </p>
+      </section>
+
+      <!-- Typische Projekte -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Typische Projekte</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-600">
+          <li>Wissen und Dokumente mit KI durchsuchen</li>
+          <li>Routineaufgaben automatisieren</li>
+          <li>Daten einmal eingeben, überall nutzen</li>
+          <li>Unterschriften und Prozesse digitalisieren</li>
+        </ul>
+      </section>
+
+      <!-- Kontakt -->
+      <section id="kontakt" class="mt-16 rounded-2xl bg-primary-50 p-8 sm:p-12">
+        <h2 class="text-2xl font-bold text-gray-800">Kontakt</h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Haben Sie Fragen oder möchten Sie ein Projekt besprechen?
+        </p>
+
+        <div class="mt-6">
+          <EmailLink variant="button" />
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-gray-600">
+          <a
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 hover:text-gray-800 transition-colors"
+          >
+            <LinkedIn class="h-5 w-5" />
+            linkedin.com/in/stefan-gasser
+          </a>
+          <span class="flex items-center gap-2">
+            <MapPin class="h-5 w-5 text-gray-400" />
+            Südtirol, Italien
+          </span>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
