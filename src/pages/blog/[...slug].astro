@@ -22,6 +22,9 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 const { Content } = await post.render();
 
+// Check if article is scheduled for future
+const isFuturePost = post.data.pubDate > new Date();
+
 // Check if audio file exists
 const audioPath = `/audio/${post.slug}.mp3`;
 const audioFileExists = fs.existsSync(
@@ -60,6 +63,15 @@ const audioFileExists = fs.existsSync(
           </svg>
           Zurück zum Blog
         </a>
+
+        {
+          isFuturePost && (
+            <div class="mt-6 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
+              Dieser Artikel erscheint am {formatDate(post.data.pubDate)}.
+            </div>
+          )
+        }
+
         <h1
           class="mt-8 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl"
         >

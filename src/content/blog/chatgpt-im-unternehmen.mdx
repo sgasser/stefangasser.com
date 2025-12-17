@@ -4,6 +4,9 @@ description: "Je nach ChatGPT-Plan landen deine Daten woanders als du denkst. Di
 pubDate: 2025-12-15
 ---
 
+import { Image } from "astro:assets";
+import chatgptDatenkontrollen from "../../assets/blog/chatgpt-datenkontrollen.webp";
+
 "Wir nutzen ChatGPT" höre ich oft. Dann frage ich: Welchen Plan? Und was gebt ihr ein?
 
 Meistens: Schulterzucken.
@@ -32,7 +35,7 @@ Wenn du etwas eingibst, kann OpenAI diese Daten nutzen, um das Modell zu verbess
 
 Du kannst das abschalten:
 
-<img src="/images/chatgpt-datenkontrollen.webp" alt="ChatGPT Datenkontrollen" loading="lazy" width="700" height="527" />
+<Image src={chatgptDatenkontrollen} alt="ChatGPT Datenkontrollen" />
 
 **Einstellungen → Datenkontrollen → "Das Modell für alle verbessern" → Aus**
 
@@ -124,4 +127,4 @@ Aber was ist mit den Aufgaben, wo du Kundendaten brauchst? Die E-Mail mit dem Ku
 
 Genau diese Aufgaben bringen oft den größten Nutzen. Und genau die kannst du mit ChatGPT nicht machen - zumindest nicht ohne Alternativen.
 
-Darüber schreibe ich nächste Woche: Was wäre wenn KI auch mit Kundendaten ginge?
+Darüber schreibe ich nächste Woche: [Was wäre, wenn KI auch mit Kundendaten ginge?](/blog/ki-mit-kundendaten)

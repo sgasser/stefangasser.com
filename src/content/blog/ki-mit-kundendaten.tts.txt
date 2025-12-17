@@ -1,0 +1,85 @@
+Ein Artikel von Stefan Gasser, vom zweiundzwanzigsten Dezember zweitausendfünfundzwanzig. <break time="0.8s" />
+
+Was wäre, wenn KI auch mit Kundendaten ginge?
+
+<break time="0.8s" />
+
+Wir nutzen ChatGPT für Texte und Recherche. Das höre ich oft. Dann frage ich: Und für Kundendaten?
+
+Meistens: Nein, natürlich nicht.
+
+Gut so. Kundendaten haben in ChatGPT nichts verloren. Aber genau das ist das Dilemma: Die Aufgaben mit dem größten Nutzen bleiben liegen.
+
+<break time="0.8s" />
+
+Wo funktioniert ChatGPT gut? Mit Business-Plan oder abgeschaltetem Training kannst du eingeben: Texte ohne Kundenbezug, Recherchen und Zusammenfassungen, Ideen und Entwürfe, oder interne Prozessdokumentation.
+
+Das funktioniert.
+
+<break time="0.5s" />
+
+Aber wo hört es auf? Sobald Kundendaten ins Spiel kommen, ist Schluss.
+
+Klar, bei einer einzelnen E-Mail kannst du den Namen durch Kunde X ersetzen. Aber in der Praxis sieht es anders aus.
+
+Fünfzig Support-Anfragen am Tag. Jede mit Kundennamen, Bestellnummern, manchmal Adressen. Jede einzeln anonymisieren? Das dauert länger als die Antwort selbst.
+
+Bestelldaten von fünfhundert Kunden. Jeder Datensatz mit Name, Adresse, Bestellhistorie. KI könnte Muster erkennen und Kaufverhalten analysieren. Aber manuell anonymisieren? Unrealistisch.
+
+Ein Stapel Verträge. Manche haben zwanzig Seiten, manche sechzig. Namen, Adressen und Kontonummern auf jeder Seite. Alles durchgehen, ersetzen, und danach die Platzhalter wieder einsetzen?
+
+Bei einzelnen, kurzen Texten geht manuelles Ersetzen. Bei echtem Arbeitsvolumen nicht.
+
+Kennst du das? Du weißt, dass KI helfen könnte. Aber die Daten sind zu sensibel.
+
+<break time="0.8s" />
+
+Ein Beispiel. Ein Online-Shop mit einem kleinen Support-Team. Sie nutzen ChatGPT für Produktbeschreibungen und FAQ-Texte. Das funktioniert.
+
+Was sie gerne tun würden: Support-Anfragen automatisch kategorisieren und beantworten. Reklamationen analysieren und Muster erkennen. Kundenfeedback zusammenfassen.
+
+Allein im Support kommen vierzig oder fünfzig Anfragen pro Tag. Jede mit Kundennamen, Bestellnummer, E-Mail-Adresse. KI könnte das in Minuten sortieren.
+
+Aber jede Anfrage enthält Kundendaten. Also tippt weiterhin jemand jede Antwort von Hand.
+
+Meine Einschätzung: Das ist die Realität in den meisten Unternehmen. KI wird genutzt, aber nur dort, wo es sicher ist. Der eigentliche Mehrwert bleibt auf der Strecke.
+
+<break time="0.8s" />
+
+Was wäre möglich?
+
+Stell dir vor: Du beantwortest Support-Anfragen mit einer KI, die auf deinem eigenen Server läuft. Was vorher Stunden dauerte, geht in Minuten. Keine Kundendaten verlassen dein Netzwerk.
+
+Oder du analysierst Reklamationen mit einer KI im eigenen Netzwerk. Muster erkennen, ohne dass Daten rausgehen.
+
+Oder du lässt Kundenfeedback zusammenfassen. Auf Infrastruktur in der EU, unter deiner Kontrolle.
+
+Das geht. Ich mache es selbst so.
+
+Die Frage ist nicht: KI ja oder nein. Die Frage ist: Wie nutze ich KI, ohne Kundendaten rauszugeben?
+
+<break time="0.8s" />
+
+Es gibt drei Ansätze.
+
+Daten maskieren: Sensible Infos automatisch entfernen, an ChatGPT senden, Antwort wieder zusammenführen.
+
+Server im eigenen Netzwerk: KI läuft bei dir im Haus, nichts geht raus.
+
+Server im EU-Rechenzentrum: Daten bleiben in Europa, du kontrollierst alles.
+
+Je nach Aufgabe passt ein anderer Ansatz.
+
+<break time="0.8s" />
+
+Zum Schluss. KI ist nützlich, aber die meisten Unternehmen nutzen sie nur halb. Genau die Aufgaben, wo KI am meisten helfen würde, bleiben liegen. Weil Kundendaten dabei sind.
+
+ChatGPT funktioniert für allgemeine Aufgaben. Bei Kundendaten ist Schluss, zumindest mit der Standard-Lösung. Es gibt Alternativen: Maskierung, eigenes Netzwerk, oder EU-Rechenzentrum.
+
+Meine Empfehlung: Wenn du KI bisher nur für sichere Aufgaben nutzt, schau dir die Alternativen an.
+
+Darüber schreibe ich nächste Woche: Drei Wege für KI mit sensiblen Daten.
+
+<break time="0.5s" />
+
+Mehr dazu auf stefan gasser punkt com.

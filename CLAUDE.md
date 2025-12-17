@@ -31,3 +31,31 @@ Astro 5 + Tailwind CSS v4 (configured via Vite plugin in `astro.config.mjs`).
 1. `/tts src/content/blog/article.md` creates optimized `.tts.txt`
 2. `npm run audio` generates MP3 via ElevenLabs
    AudioPlayer auto-displays when `public/audio/[slug].mp3` exists.
+
+## Blog Images
+
+**Format**: MDX with Astro Image component for automatic optimization.
+
+**Location**: `src/assets/blog/` folder.
+
+**Usage in MDX**:
+
+```mdx
+import { Image } from "astro:assets";
+import myImage from "../../assets/blog/my-image.webp";
+
+<Image src={myImage} alt="Description" />
+```
+
+Astro automatically:
+
+- Converts to WebP/AVIF
+- Generates responsive srcset
+- Adds lazy loading
+- Prevents layout shift
+
+**Creating screenshots**: Use Playwright, crop with ImageMagick:
+
+```bash
+magick input.png -crop WIDTHxHEIGHT+X+Y -quality 85 output.webp
+```

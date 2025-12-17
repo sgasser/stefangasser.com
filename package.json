@@ -16,6 +16,7 @@
     "audio:dry": "tsx scripts/generate-blog-audio.ts --dry-run"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
     "@astrojs/node": "^9.5.1",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.19",

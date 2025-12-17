@@ -79,7 +79,9 @@ async function processFile(
   const words = text.split(/\s+/).length;
 
   console.log(`\n${slug}`);
-  console.log(`  ${chars.toLocaleString()} chars, ${words.toLocaleString()} words`);
+  console.log(
+    `  ${chars.toLocaleString()} chars, ${words.toLocaleString()} words`
+  );
 
   if (dryRun) {
     console.log(`  [dry-run] Would generate audio\n`);
@@ -137,7 +139,9 @@ Requires .tts.txt file (create with /tts command first)
     totalWords += words;
   }
 
-  console.log(`\nTotal: ${totalChars.toLocaleString()} chars, ${totalWords.toLocaleString()} words`);
+  console.log(
+    `\nTotal: ${totalChars.toLocaleString()} chars, ${totalWords.toLocaleString()} words`
+  );
 
   if (dryRun) {
     console.log(`Estimated cost: $${(totalChars * 0.00003).toFixed(2)}`);
