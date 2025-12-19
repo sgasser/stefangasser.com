@@ -6,8 +6,6 @@ import Footer from "../../components/Footer.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
 import AudioPlayer from "../../components/AudioPlayer.astro";
 import { formatDate } from "../../utils/date";
-import fs from "node:fs";
-import path from "node:path";
 
 const { slug } = Astro.params;
 
@@ -21,11 +19,9 @@ if (!post) {
 const { Content } = await render(post);
 const isScheduled = post.data.pubDate > new Date();
 
+const audioFiles = import.meta.glob<boolean>("/public/audio/*.mp3", { query: "?exists", import: "default" });
 const audioPath = `/audio/${post.slug}.mp3`;
-const audioFileName = `${post.slug}.mp3`;
-const audioFileExists =
-  fs.existsSync(path.join(process.cwd(), "public", "audio", audioFileName)) ||
-  fs.existsSync(path.join(process.cwd(), "dist", "client", "audio", audioFileName));
+const audioFileExists = `/public${audioPath}` in audioFiles;
 ---
 
 <Layout
