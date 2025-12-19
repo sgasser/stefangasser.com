@@ -8,6 +8,8 @@ import LinkedIn from "../../components/icons/LinkedIn.astro";
 import { socialLinks } from "../../data/social";
 import { formatDate } from "../../utils/date";
 
+export const prerender = false;
+
 const posts = (await getCollection("blog"))
   .filter((post) => post.data.pubDate <= new Date())
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
