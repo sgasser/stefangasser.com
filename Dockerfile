@@ -8,11 +8,14 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
+# Remove dev dependencies for smaller image
+RUN npm prune --omit=dev
+
 FROM node:20-alpine AS runtime
 
 WORKDIR /app
 
-# Copy built application
+# Copy built application and production dependencies only
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 

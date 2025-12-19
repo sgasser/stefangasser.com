@@ -7,6 +7,7 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: "https://stefangasser.com",
+  output: "server",
 
   adapter: node({
     mode: "standalone",

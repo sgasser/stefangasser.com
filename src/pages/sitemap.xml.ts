@@ -1,8 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
-export const prerender = false;
-
 const staticPages = [
   { path: "", priority: "1.0", changefreq: "weekly" },
   { path: "blog", priority: "0.8", changefreq: "weekly" },

@@ -4,8 +4,6 @@ import { ImageResponse } from "@vercel/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const prerender = false;
-
 async function loadImage(): Promise<string> {
   const imagePath = join(
     process.cwd(),
