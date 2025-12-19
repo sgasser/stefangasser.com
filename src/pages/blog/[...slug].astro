@@ -19,7 +19,10 @@ if (!post) {
 const { Content } = await render(post);
 const isScheduled = post.data.pubDate > new Date();
 
-const audioFiles = import.meta.glob<boolean>("/public/audio/*.mp3", { query: "?exists", import: "default" });
+const audioFiles = import.meta.glob<boolean>("/public/audio/*.mp3", {
+  query: "?exists",
+  import: "default",
+});
 const audioPath = `/audio/${post.slug}.mp3`;
 const audioFileExists = `/public${audioPath}` in audioFiles;
 ---
