@@ -19,15 +19,13 @@ if (!post) {
 }
 
 const { Content } = await render(post);
-
-// Check if post is scheduled for future
 const isScheduled = post.data.pubDate > new Date();
 
-// Check if audio file exists
 const audioPath = `/audio/${post.slug}.mp3`;
-const audioFileExists = fs.existsSync(
-  path.join(process.cwd(), "public", "audio", `${post.slug}.mp3`)
-);
+const audioFileName = `${post.slug}.mp3`;
+const audioFileExists =
+  fs.existsSync(path.join(process.cwd(), "public", "audio", audioFileName)) ||
+  fs.existsSync(path.join(process.cwd(), "dist", "client", "audio", audioFileName));
 ---
 
 <Layout
