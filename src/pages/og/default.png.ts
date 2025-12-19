@@ -4,21 +4,17 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 async function loadImage(): Promise<string> {
-  const imagePath = join(
-    process.cwd(),
-    "dist",
-    "client",
-    "images",
-    "stefan.jpg"
-  );
-  try {
-    const imageBuffer = await readFile(imagePath);
-    return `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
-  } catch {
-    const altPath = join(process.cwd(), "public", "images", "stefan.jpg");
-    const imageBuffer = await readFile(altPath);
-    return `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
+  const paths = [
+    join(process.cwd(), "dist", "client", "images", "stefan.jpg"),
+    join(process.cwd(), "public", "images", "stefan.jpg"),
+  ];
+  for (const p of paths) {
+    try {
+      const buf = await readFile(p);
+      return `data:image/jpeg;base64,${buf.toString("base64")}`;
+    } catch {}
   }
+  throw new Error("Image not found");
 }
 
 export const GET: APIRoute = async () => {
