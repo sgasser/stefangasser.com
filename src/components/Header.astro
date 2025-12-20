@@ -9,6 +9,7 @@ const navigation = [
 
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/";
+const isEnglish = currentPath === "/english";
 ---
 
 <header
@@ -64,8 +65,23 @@ const isHome = currentPath === "/";
                 </nav>
               </div>
 
-              <!-- Spacer for symmetry -->
-              <div class="flex flex-1 justify-end"></div>
+              <!-- English link on right (hidden on mobile, always in footer) -->
+              <div class="hidden md:flex flex-1 justify-end">
+                {
+                  !isEnglish && (
+                    <a
+                      href="/english"
+                      title="English version"
+                      aria-label="View English version"
+                      class="pointer-events-auto rounded-full bg-white/90 px-3 text-sm font-medium text-gray-800 shadow-lg shadow-gray-800/5 ring-1 ring-gray-900/5 backdrop-blur"
+                    >
+                      <span class="relative block whitespace-nowrap px-3 py-2.5 transition hover:text-primary-700">
+                        English
+                      </span>
+                    </a>
+                  )
+                }
+              </div>
             </div>
           </div>
         </div>

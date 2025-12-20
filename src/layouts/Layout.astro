@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   ogType?: "website" | "article";
+  lang?: "de" | "en";
 }
 
 const {
@@ -13,13 +14,14 @@ const {
   description = "Digitalisierung. KI. Automatisierung. Ich helfe Unternehmen, KI und Automatisierung sinnvoll einzusetzen.",
   ogImage = "/og/default.png",
   ogType = "website",
+  lang = "de",
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
