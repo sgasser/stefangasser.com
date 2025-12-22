@@ -30,7 +30,9 @@ import NavCard from "../components/NavCard.astro";
                       width={320}
                       height={320}
                       alt="Stefan Gasser"
-                      priority
+                      loading="eager"
+                      decoding="sync"
+                      fetchpriority="high"
                       class="aspect-square -rotate-3 rounded-2xl bg-gray-100 object-cover shadow-lg ring-1 ring-gray-900/5"
                     />
                     <figcaption
