@@ -4,7 +4,7 @@ Konvertiere den Blog-Artikel $ARGUMENTS in TTS-optimierten Text.
    - Frontmatter, Markdown-Formatierung, URLs, Bilder, HTML-Tags
 
 2. Umwandeln:
-   - Überschriften als Überleitungen: "Schauen wir uns X an", "Fassen wir zusammen"
+   - Zwischen-Überschriften (## H2, ### H3) weglassen – der Text fließt natürlich von Abschnitt zu Abschnitt
    - Tabellen und Aufzählungen als Fließtext
    - UI-Anleitungen beschreibend: "In den Einstellungen findest du..."
    - Abkürzungen ausschreiben: € → Euro, z.B. → zum Beispiel

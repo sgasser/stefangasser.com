@@ -28,9 +28,13 @@ Astro 5 + Tailwind CSS v4 (configured via Vite plugin in `astro.config.mjs`).
 
 **Blog Audio**: Two-step workflow:
 
-1. `/tts src/content/blog/article.md` creates optimized `.tts.txt`
-2. `npm run audio` generates MP3 via ElevenLabs
-   AudioPlayer auto-displays when `public/audio/[slug].mp3` exists.
+1. `/tts src/content/blog/article.mdx` creates optimized `.tts.txt`
+2. `npm run audio:dry` to verify output (no frontmatter, no "title:", correct slug)
+3. `npm run audio` generates MP3 via ElevenLabs
+
+AudioPlayer auto-displays when `public/audio/[slug].mp3` exists.
+
+Always run `audio:dry` first - each generation costs credits.
 
 ## Blog Images
 

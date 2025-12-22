@@ -65,8 +65,8 @@ async function processFile(
   filePath: string,
   dryRun: boolean
 ): Promise<{ chars: number; words: number }> {
-  const slug = basename(filePath, ".md");
-  const ttsPath = filePath.replace(/\.md$/, ".tts.txt");
+  const slug = basename(filePath).replace(/\.mdx?$/, "");
+  const ttsPath = filePath.replace(/\.mdx?$/, ".tts.txt");
 
   if (!existsSync(ttsPath)) {
     throw new Error(

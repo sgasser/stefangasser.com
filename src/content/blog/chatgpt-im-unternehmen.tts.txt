@@ -4,8 +4,6 @@ ChatGPT im Unternehmen: Wo landen deine Daten? <break time="0.8s" />
 
 "Wir nutzen ChatGPT" höre ich oft. Dann frage ich: Welchen Plan? Und was gebt ihr ein? Meistens: Schulterzucken. Dabei macht es einen Unterschied. Je nach Plan landen deine Eingaben woanders als du denkst. <break time="0.8s" />
 
-Schauen wir uns die fünf ChatGPT-Pläne an. <break time="0.5s" />
-
 Der Free-Plan kostet nichts und eignet sich zum Testen. <break time="0.3s" />
 Der Plus-Plan kostet dreiundzwanzig Euro pro Monat für Einzelpersonen. <break time="0.3s" />
 Der Pro-Plan kostet zweihundertneunundzwanzig Euro pro Monat für Vielnutzer. <break time="0.3s" />
@@ -19,7 +17,7 @@ Bei allen Plänen werden deine Daten auf US-Servern verarbeitet. OpenAI ist ein 
 
 Was heißt das für Unternehmen? <break time="0.5s" />
 
-Allgemeine Inhalte kannst du problemlos eingeben: Texte ohne Kundenbezug, Recherchen, Ideen und Entwürfe. Bei Geschäftsgeheimnissen wie Strategien oder Finanzplanung wäre ich vorsichtig. <break time="0.5s" />
+Allgemeine Inhalte kannst du problemlos eingeben: Texte ohne Kundenbezug, Recherchen, Ideen und Entwürfe. Geschäftsgeheimnisse wie Strategien oder Finanzplanung gehören dort nicht hin. <break time="0.5s" />
 
 Bei Kundendaten wird es kritisch. Namen, E-Mail-Adressen, Finanzdaten oder Gesundheitsdaten landen auf US-Servern bei OpenAI. Zwei Fragen solltest du dir stellen: Darf ich das? Und: Will ich das?
 
@@ -27,15 +25,13 @@ Dein Kunde hat dir seine Daten anvertraut. Will er, dass sie bei OpenAI landen? 
 
 Was bieten Business und Enterprise zusätzlich? <break time="0.5s" />
 
-Ein Data Processing Agreement, Admin-Kontrolle und Audit-Logs. Bei Enterprise ist EU-Datenresidenz möglich. Für normale Geschäftsdaten ist das eine gute Lösung. Für sensible Kundendaten würde ich nach Alternativen suchen. <break time="0.8s" />
+Ein Data Processing Agreement, Admin-Kontrolle und Audit-Logs. Bei Enterprise ist EU-Datenresidenz möglich. Für normale Geschäftsdaten ist das eine gute Lösung. Sensible Kundendaten brauchen eine andere Lösung. <break time="0.8s" />
 
 Hier meine Empfehlungen. <break time="0.5s" />
 
 Wenn du Free oder Plus nutzt: Aktiviere das Opt-out und trenne Firmen- und Privat-Account. <break time="0.3s" />
 
 Wenn mehrere Leute im Team ChatGPT nutzen: Holt euch den Business-Plan und definiert gemeinsame Regeln. Eine einfache Faustregel: Würdest du es auch an einen externen Berater schicken? Wenn ja, ok. Wenn nein, nicht eingeben. <break time="0.8s" />
-
-Fassen wir zusammen. <break time="0.5s" />
 
 ChatGPT ist ein nützliches Tool für Unternehmen. Für viele Aufgaben funktioniert das: Texte schreiben, Ideen entwickeln, Dokumente zusammenfassen.
 

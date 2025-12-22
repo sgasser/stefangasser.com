@@ -42,7 +42,7 @@ Allein im Support kommen vierzig oder fünfzig Anfragen pro Tag. Jede mit Kunden
 
 Aber jede Anfrage enthält Kundendaten. Also tippt weiterhin jemand jede Antwort von Hand.
 
-Meine Einschätzung: Das ist die Realität in den meisten Unternehmen. KI wird genutzt, aber nur dort, wo es sicher ist. Der eigentliche Mehrwert bleibt auf der Strecke.
+Das ist die Realität in den meisten Unternehmen. KI wird genutzt, aber nur dort, wo es sicher ist. Der eigentliche Mehrwert bleibt auf der Strecke.
 
 <break time="0.8s" />
 
@@ -72,7 +72,7 @@ Je nach Aufgabe passt ein anderer Ansatz.
 
 <break time="0.8s" />
 
-Zum Schluss. KI ist nützlich, aber die meisten Unternehmen nutzen sie nur halb. Genau die Aufgaben, wo KI am meisten helfen würde, bleiben liegen. Weil Kundendaten dabei sind.
+KI ist nützlich, aber die meisten Unternehmen nutzen sie nur halb. Genau die Aufgaben, wo KI am meisten helfen würde, bleiben liegen. Weil Kundendaten dabei sind.
 
 ChatGPT funktioniert für allgemeine Aufgaben. Bei Kundendaten ist Schluss, zumindest mit der Standard-Lösung. Es gibt Alternativen: Maskierung, eigenes Netzwerk, oder EU-Rechenzentrum.
 
