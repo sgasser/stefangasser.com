@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -8,6 +8,9 @@ import { FileText, User, MessageCircle } from "lucide-astro";
 import stefanImage from "../assets/stefan.webp";
 import ContactCTA from "../components/ContactCTA.astro";
 import NavCard from "../components/NavCard.astro";
+
+// Use getImage for LCP image to have full control over attributes
+const heroImage = await getImage({ src: stefanImage, width: 320, height: 320, format: "webp" });
 ---
 
 <Layout title="Stefan Gasser – Digitalisierung. KI. Automatisierung.">
@@ -25,8 +28,8 @@ import NavCard from "../components/NavCard.astro";
               <div class="flex justify-center lg:justify-start lg:px-4">
                 <div class="max-w-[280px] px-2.5 lg:max-w-[320px]">
                   <figure>
-                    <Image
-                      src={stefanImage}
+                    <img
+                      src={heroImage.src}
                       width={320}
                       height={320}
                       alt="Stefan Gasser"
